@@ -9,3 +9,25 @@
 
 # Ваше завдання - розробити функцію get_cats_info(path), яка читає цей файл та повертає список словників з інформацією про кожного кота.
 
+
+def get_cats_info(path): 
+    with open (path, "r", encoding="utf-8") as f:
+        cats_f = [el.strip() for el in f.readlines()]
+        cats_count = len(cats_f)
+
+        if cats_count:
+
+            cats_info_list = []
+
+            for cat in cats_f: 
+                cat_info = cat.split(",")
+                cat_dict= {"id": cat_info[0], "name": cat_info[1], "age":cat_info[2]}
+                cats_info_list.append(cat_dict)
+                
+            print(cats_info_list)
+
+        else: 
+            print("Ваш файл порожній")
+  
+
+get_cats_info("task02/cats.txt")

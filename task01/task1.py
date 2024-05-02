@@ -12,7 +12,7 @@
 import re
 
 def total_salary(path): 
-    with open(path) as f: 
+    with open(path, encoding="utf-8") as f: 
         users_list = [el.strip() for el in f.readlines()]
         users_count = len(users_list)
         salary_sum = 0
